@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # ✅ Allow cross-origin requests (important for frontend)
 import re
 import requests
 import concurrent.futures
@@ -6,10 +7,7 @@ import random
 import time
 
 app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Your backend API is live and ready!"
+CORS(app)  # ✅ Allow requests from your frontend (e.g., hosted on Cloudflare)
 
 def check_usernames(usernames, proxy_list):
     proxy_index = [-1]
