@@ -7,6 +7,10 @@ import time
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "Your backend API is live and ready!"
+
 def check_usernames(usernames, proxy_list):
     proxy_index = [-1]
     proxy_cooldown = set()
